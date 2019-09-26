@@ -8,6 +8,7 @@ class Coach(models.Model):
 
     criado_em =  models.DateTimeField(default=timezone.now)
     ativo = models.BooleanField(default=True)
+    
     def __str__(self):
         return self.nome
 
