@@ -19,16 +19,35 @@ def index(request):
 
 def listar_coachs(request):
     listar_coachs = Coach.objects.filter(ativo=True).all()
+
+    args = None
+    if listar_coachs.first() is None:
+        args = {
+            'msg': 'Ops, não tem ninguém aqui'
+        }
+    else:
+        args = {
+            'listar_coachs': listar_coachs
+        }
+    return render(request, 'listar_coachs.html', args)        
     args = {
         'listar_coachs': listar_coachs
     }
     return render(request, 'listar_coachs.html', args) 
+    
 
 def delete_coach(request, id):
-    item = Coach.objects.get(id=id)
+    item = Coach.objects.filter(id=id).first()
     if item is not None:
         item.ativo = False
         item.save()
-        return redirect('/coachs/listar')
-        
-    return render(request, 'listar_coachs.html', {'msg': 'apagou'})    
+
+        listar_coachs = Coach.objects.filter(ativo=True).all()
+        args = {
+             'listar_coachs': listar_coachs,
+             'msg': 'BYEEEE'
+        }
+        return render(request, 'listar_coachs.html', args)
+        # return redirect('/coachs/listar')
+    return redirect('/')   
+    # return render(request, 'listar_coachs.html', {'msg': 'apagou'})    
