@@ -1,3 +1,3 @@
-web: gunicorn coach.wsgi 
+web: gunicorn Coach.wsgi --log-file -
 
 
