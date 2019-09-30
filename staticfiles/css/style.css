@@ -1,0 +1,28 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color: rgb(224, 191, 191);
+    font-family: 'Mansalva', cursive;
+
+}
+.titulo-index{
+    color: blue;
+    font-size: 40pt;
+}
+.inspiracao{
+text-decoration: none;
+font-size: 15pt;
+color: rgb(185, 44, 44);
+}
+label{
+    font-size: 14pt;
+}
+input{
+    height: 50px;
+}
+.imagem{
+    width: 30%;
+    margin: 20px;
+    
+}
